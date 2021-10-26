@@ -34,7 +34,7 @@ void printAllPermutations(string input, string ans) {
     }
 }
 
-//most optimized solution - Very imp to see that backtracknig(recovering aspect) is useful.
+//most optimized solution - Very imp to see that backtracknig(pruning + recovering aspect) is useful.
 void printAllPermutations_optimized(string input, int i) {
     if(i == input.length()-1) {
         cout<<input<<endl;
@@ -42,7 +42,7 @@ void printAllPermutations_optimized(string input, int i) {
     }
     vector<bool> visited = vector<bool>(26, false);
     for(int j=i; j<input.length(); j++) {
-        if (!visited[input[j]-'a']) {
+        if (!visited[input[j]-'a']) {     //pruning
             visited[input[j]-'a'] = true;
             swap(input[j], input[i]);     //take each element to the ith place
             printAllPermutations_optimized(input, i+1);
