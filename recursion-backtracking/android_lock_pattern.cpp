@@ -7,6 +7,7 @@ using namespace std;
 //https://www.lintcode.com/problem/909/
 //leetcode free mirror
 //got AC
+//same recursion backtracking but impl tricky with edge cases
 
 bool isTravelPossible(set<int> &passedPositions, int lastAdded, int nextPosition) {
     if (lastAdded == 0 || lastAdded ==5 || nextPosition==5) {
