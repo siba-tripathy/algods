@@ -9,15 +9,15 @@ using namespace std;
 
 //calculate minOps needed to take i {1, 999}, to 0. [as we have reverse the problem from incre all but 1 -> decre only 1 element: same meaning]
 void findMinOps(vector<int>& minOps) {
-    vector<int> stepSizes = {1, 2, 5};
+    vector<int> operationSizes = {1, 2, 5};
     for (int i = 1; i<minOps.size(); i++) {
-        for(int j = 0; j<stepSizes.size(); j++) {
-            if (i - stepSizes[j] < 0) continue;
-            if (minOps[i- stepSizes[j]] != -1) {
+        for(int j = 0; j<operationSizes.size(); j++) {
+            if (i - operationSizes[j] < 0) continue;
+            if (minOps[i- operationSizes[j]] != -1) {
                 if (minOps[i] < 0) {
-                    minOps[i] = 1 + minOps[i - stepSizes[j]];
+                    minOps[i] = 1 + minOps[i - operationSizes[j]];
                 } else {
-                    minOps[i] = min(minOps[i], 1 + minOps[i - stepSizes[j]]);
+                    minOps[i] = min(minOps[i], 1 + minOps[i - operationSizes[j]]);
                 }
             }
         }
@@ -28,14 +28,10 @@ void findMinOps(vector<int>& minOps) {
 int main() {
     int t;
     cin>>t;
-    vector<int> minOps = vector<int>(1000, -1); //max value of initial counts/positions is < 1000, i.e.: 999, so size = 1000, as ans[0] = 0
+    vector<int> minOps = vector<int>(10004, -1); //max value of initial counts/positions is < 1000, and we check for value - (min-4), so range is 0 to 1004 {1004 when max = 1000 and min = 0}
     minOps[0]=0;
     findMinOps(minOps);
 
-    // for (int i = 0; i<= 12; i++) {
-    //     cout<<minOps[i]<<" ";
-    // }
-    // cout<<endl;
     while(t--) {
         int n;
         cin>>n;
@@ -46,15 +42,12 @@ int main() {
             mini = min(mini, startPositions[i]);
         }
         int totalMinOps = INT_MAX;
-        for (int dest = 0; dest<=mini; dest++) {
+        for (int dest = mini-4; dest<=mini; dest++) {
             int totalOps = 0;
             for (int i = 0; i<n ; i++) {
                 totalOps += minOps[startPositions[i] - dest];
-                // if (dest == 7) {
-                //     cout<<"ops for start: "<<startPositions[i]<<" and dest = 7 is "<<minOps[startPositions[i] - dest];
-                // }
+                // ops to reduce x to target t = f(x-t)
             }
-            //cout<<"total ops for dest:"<<dest<<" is "<<totalOps<<endl;
             totalMinOps = min(totalMinOps, totalOps);
         }
         cout<<totalMinOps<<endl;
