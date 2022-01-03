@@ -3,6 +3,11 @@
 
 using namespace std;
 
+//https://leetcode.com/problems/minimum-cost-for-tickets/
+//nice question
+//AC
+
+
 int main() {
 	int d;
 	cin>>d;
