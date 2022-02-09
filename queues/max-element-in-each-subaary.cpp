@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//find max element in each subaaray of size k
+
 int main() {
     vector<int> arr{ 2, 3, 11, 4, 2, 9, 7, 8, 12};               //only in c++11 so use -std=c++11
     int k = 3;
@@ -23,6 +25,8 @@ int main() {
             tracker.pop_front();
         }
 
+        //pls understand why <= is used : 
+        //as we want max for future so want nearest greter which can contribute longer and not get popped wrongly when its out of bounds and we store indices 
         while(!tracker.empty() && arr[tracker.back()] <= arr[i]) {
             tracker.pop_back();
         }
