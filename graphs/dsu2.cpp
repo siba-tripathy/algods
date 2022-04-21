@@ -33,8 +33,8 @@ class union_find
 {
 
 public:
-	int *pr;
-	int *sz;
+	int *pr;         //parent
+	int *sz;         //size
 	int cmp;
 
 	union_find(int n)
@@ -53,7 +53,7 @@ public:
 		if (pr[i] == i)
 			return i;
 
-		return pr[i] = root(pr[pr[i]]);
+		return pr[i] = root(pr[pr[i]]);         //path compression
 	}
 
 	int find(int i, int j)
