@@ -2,6 +2,8 @@
 
 using namespace std;
 
+//GFG : AC : https://www.geeksforgeeks.org/problems/find-the-smallest-and-second-smallest-element-in-an-array3226/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
 int main() {
     vector<int> array = {3, 4, 5, 5, 6, 1, 1, 3};
 
