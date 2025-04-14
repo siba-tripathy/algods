@@ -1,19 +1,25 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
+// CF: AC : https://codeforces.com/contest/1807/problem/A
 
-int main() {
+int main()
+{
     int t;
-    cin>>t;
-    while(t--) {
-    int a,b,c;
-    cin>>a>>b>>c;
+    cin >> t;
+    while (t--)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
 
-    if (c == a+b) {
-        cout<<"+";
-    } else {
-        cout<<"-";
+        if (c == a + b)
+        {
+            cout << "+"<<endl;
+        }
+        else
+        {
+            cout << "-"<<endl;
+        }
     }
-    }
-    return 1;
+    return 0;
 }
