@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// CF : AC : https://codeforces.com/contest/1352/problem/A
+
 int main() {
     int t;
     cin>>t;
