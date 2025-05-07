@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// CF : V Easy  : Good for case transition method knowledge : https://codeforces.com/problemset/problem/112/A
+
 int main() {
     string a, b;
     cin>>a>>b;
