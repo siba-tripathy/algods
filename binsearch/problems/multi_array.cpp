@@ -6,7 +6,7 @@
 using namespace std;
 
 // CF: https://codeforces.com/contest/1337/problem/D
-// Alternate Merge Flow Solution Would Work as well.
+// Alternate Merge Flow Solution Would Work as well. https://codeforces.com/contest/1337/submission/76877219
 
 long long int calculateValue(long long int a, long long int b, long long int c) {
     // cout<<endl<<"A="<<a<<endl;
