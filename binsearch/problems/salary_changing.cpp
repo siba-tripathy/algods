@@ -71,6 +71,7 @@ int main() {
         }
 
         //range of the median will be between l_median and r_median as those are the two extreme distributions
+        // lowest extreme : give every body l[i], highest extre : give everybody r[i]
 
         vector<int> l_med(l.begin(), l.end());
         vector<int> r_med(r.begin(), r.end());

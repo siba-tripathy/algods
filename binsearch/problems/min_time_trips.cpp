@@ -3,7 +3,7 @@
 using namespace std;
 
 // Medium. Good Logic. Bad at int limit strictness.
-// LC : https://leetcode.com/problems/single-element-in-a-sorted-array
+// LC : https://leetcode.com/problems/minimum-time-to-complete-trips/
 
 class Solution
 {
