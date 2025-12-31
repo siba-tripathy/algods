@@ -12,7 +12,7 @@ int main() {
     vector<long long int> arr(n, 0);
     vector<long long int> brr(n, 0);
 
-    long long int max_candies_low = 0, max_candies_high = 1e18;// can be better, shoulbe max of (a[i] * b[i])
+    long long int max_candies_low = 0, max_candies_high = 1e18;// can be better, should be max of (a[i] * b[i])
 
     for(long long int i = 0; i<n; i++) {
         cin>>arr[i];
