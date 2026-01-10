@@ -3,6 +3,7 @@ using namespace std;
 
 // Easy-Med
 // https://leetcode.com/problems/word-search/
+// Good Backtracking practice.
 
 class Solution {
    public:
