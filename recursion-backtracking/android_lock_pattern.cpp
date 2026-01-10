@@ -6,6 +6,7 @@ using namespace std;
 
 //https://www.lintcode.com/problem/909/
 //leetcode free mirror
+// Original LC: https://leetcode.com/problems/android-unlock-patterns/
 //got AC
 //same recursion backtracking but impl tricky with edge cases
 
