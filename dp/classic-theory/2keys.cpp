@@ -1,32 +1,35 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 //https://leetcode.com/problems/2-keys-keyboard/
 //AC
 
-
-int minSteps(int n) {
-    vector<int> ans = vector<int>(n, 0);
-    ans[0] = 0;
-    if (n == 1) {
-        return 0;
-    }
-    for(int i = 2; i<=n; i++) {
-        ans[i-1] = i;
-        for(int j = i-1; j>=1; j--) {
-            if (i%j == 0) {
-                ans[i-1] = ans[j-1] + i/j;
-                break;
+class Solution {
+   public:
+    int minSteps(int n) { // Normal DP : O(n^2)
+        vector<int> steps(n+1, INT_MAX);
+        steps[1] = 0;
+        for (int i=2; i<=n; i++) {
+            for (int j=i-1; j>=1; j--) {
+                if (i%j==0) {
+                    steps[i]=min(steps[i], steps[j]+ (i/j));
+                }
             }
         }
+        return steps[n];
     }
-    return ans[n-1];
-}
 
-int main() {
-    int n;
-    cin>>n;
-    cout<<minSteps(n);
-}
+    // math insight used : prime factorization (Time : O(√n))
+    int minSteps(int n) {
+        int ans = 0;
+        for (int d = 2; d * d <= n; d++) {
+            while (n % d == 0) {
+                ans += d;
+                n /= d;
+            }
+        }
+        if (n > 1) ans += n;
+        return ans;
+    }
+};

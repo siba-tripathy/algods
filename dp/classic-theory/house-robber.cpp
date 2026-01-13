@@ -1,7 +1,9 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 
 using namespace std;
+
+// Easy-Med. Pattern. IMP Problem.
+// LC: https://leetcode.com/problems/house-robber
 
 //bottom-up approach
 int maxAmountRobbed(vector<int> &arr) {
@@ -20,7 +22,6 @@ int maxAmountRobbed(vector<int> &arr) {
         }
     }
     return maxAmountRobbable[arr.size()-1];
-    }
 }
 
 //top-down DP approach: naive recusrsive is optimized with memoization
