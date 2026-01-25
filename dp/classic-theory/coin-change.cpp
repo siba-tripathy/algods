@@ -5,6 +5,7 @@ using namespace std;
 
 //https://leetcode.com/problems/coin-change/
 //both approaches AC
+// Impl Trick IMP - Two marker values needed. -2 and -1
 
 int findMinCoins(int amount, vector<int>& coins, vector<int>& ans) {
     if(amount == 0) {
@@ -13,7 +14,7 @@ int findMinCoins(int amount, vector<int>& coins, vector<int>& ans) {
     if (amount < 0) {
         return -1;
     }
-    if (ans[amount] != -2) {
+    if (ans[amount] != -2) { // means it has been already explored. Maybe -1 for impossible or a possible count
         return ans[amount];
     }
     int minCoins = -1; //let it denote impossible at first
@@ -30,7 +31,7 @@ int findMinCoins(int amount, vector<int>& coins, vector<int>& ans) {
     return minCoins;
 }
 
-int findMinCoinsBU(int amount, vector<int>& coins) {
+int findMinCoinsBottomUp(int amount, vector<int>& coins) {
     vector<int> minCoins = vector<int>(amount+1, -1);
     minCoins[0]=0;
     for(int i = 1; i <= amount; i++) {
@@ -59,7 +60,7 @@ int main() {
     for(int i = 0; i<n; i++) {
         cin>>coins[i];
     }
-    vector<int> ans = vector<int>(amount+1, -2);
+    vector<int> ans = vector<int>(amount+1, -2); // -2 means unexplored, -1 means impossible. IMP(2 Markers)
     //cout<<findMinCoins(amount, coins, ans);
-    cout<<findMinCoinsBU(amount, coins);
+    cout<<findMinCoinsBottomUp(amount, coins);
 }
